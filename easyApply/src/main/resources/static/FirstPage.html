@@ -2,9 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 50px 20px;
+            margin: 0;
+        }
+
+        .logo {
+            max-width: 250px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            background-color: #3498db;
+            color: #fff;
+            width: 80%;
+            margin-top: 10px;
+        }
+
+        .terms-text {
+            font-size: 12px;
+            margin-top: 20px;
+        }
+
+        .registration-options {
+            display: none;
+            margin-top: 20px;
+        }
+        .registration-option {
+            width: 80%;
+            position: relative;
+            cursor: pointer;
+            margin-bottom: 20px;
+            margin-right: 10px; /* Add margin to create space between buttons */
+        }
+
+        .registration-option input {
+            display: none;
+        }
+
+        .registration-option label {
+            display: block;
+            padding: 15px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            text-align: center;
+            transition: background-color 0.3s ease-in-out;
+            border: none; /* Remove the border */
+        }
+        .registration-option a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .registration-option input:checked + label {
+            background-color: #2c3e50;
+        }
+    </style>
 </head>
 <body>
-    <h1>Nese e sheh qita, mire o!</h1>
+
+<img src="./easyA.png" alt="Logo" class="logo">
+<p class="title">Ku talentet takojnë mundësitë dhe ëndrrat bëhen realitet! Gjeni rrugën tuaj drejt suksesit.</p>
+
+<div class="text-center">
+    <a href="./login.html" class="btn btn-primary btn-lg mb-3">Kyçu</a>
+    <br>
+    <a href="#" class="btn btn-primary btn-lg mb-3" id="registerBtn">Regjistrohu</a>
+
+
+    <div class="registration-options" id="registrationOptions">
+        <div class="registration-option">
+            <input type="radio" id="aplikantOption" name="registrationType" checked>
+            <label for="aplikantOption">Regjistrohu si Aplikant</label>
+        </div>
+
+
+        <div class="registration-option">
+            <input type="radio" id="kompaniOption" name="registrationType">
+            <label for="kompaniOption"> <a href="./signup.html"  >Regjistrohu si Kompani</a></label>
+        </div>
+    </div>
+</div>
+
+<p class="terms-text">Duke krijuar një llogari, pajtoheni me kushtet dhe kushtet e përdorimit, si dhe politikën e privatësisë.</p>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+    document.getElementById("registerBtn").addEventListener("click", function () {
+        document.getElementById("registrationOptions").style.display = "flex";
+    });
+</script>
+
 </body>
 </html>
