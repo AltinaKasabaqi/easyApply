@@ -11,16 +11,11 @@ import java.net.URI;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 @SpringBootApplication
-@Controller
 public class EasyApplyApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EasyApplyApplication.class, args);
 	}
 
-	@GetMapping("/")
-	public String home(){
-		return "FirstPage.html";
-	}
 
 }
