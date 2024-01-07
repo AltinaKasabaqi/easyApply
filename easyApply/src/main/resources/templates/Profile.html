@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+    <title>Faqja e Profilit</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #3498db;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li {
+            margin: 10px;
+        }
+
+        nav ul li a img{
+            float: right;
+            width: 20%;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+
+
+        .profile-info {
+            flex-grow: 1;
+        }
+        .profile-info img{
+            width: 30%;
+            float: left;
+        }
+
+        .right{
+            float: right;
+        }
+
+        .historia-e-puneve {
+            margin: 10%;
+            text-align: center; /* Center the content */
+        }
+
+        .tabela {
+            border: solid 1px black;
+            list-style: none;
+            border-collapse: collapse;
+            padding: 10px;
+            display: inline-block;
+            width: 100%;
+
+        }
+
+        .tabela li {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        /*.comment-card {*/
+        /*    margin: 20px;*/
+        /*    padding: 20px;*/
+        /*    border: 1px solid #ccc;*/
+        /*    overflow: hidden; !* Clear the float *!*/
+        /*}*/
+
+        /*.comment-card img {*/
+        /*    width: 10%;*/
+        /*    float: left;*/
+        /*    border-radius: 50%;*/
+        /*    margin-right: 20px;*/
+        /*}*/
+
+        /*.comment-card h4 {*/
+        /*    float: left;*/
+        /*    padding: 0;*/
+        /*    margin-top: 3%;*/
+        /*}*/
+
+        /*.comment-info {*/
+        /*    padding-top: 5%;*/
+        /*    float: left;*/
+        /*    margin: 0%;*/
+        /*}*/
+
+        /*.p1{*/
+        /*    padding-top: 20%;*/
+        /*    float: left;*/
+        /*    margin-left:0%;*/
+        /*}*/
+
+        /*.comment-info p img {*/
+        /*    width: 20px;*/
+        /*}*/
+
+        .konkursi-card {
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .card-text {
+            margin-top: 10px;
+        }
+
+        .teDhenaShtese {
+            font-style: italic;
+            color: #666;
+        }
+
+
+        .view-details-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .view-details-btn:hover {
+            background-color: #2980b9;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+
+        .bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Center items vertically */
+        }
+
+        .bottom-bar a {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin: 0 10px;
+            color: white; /* Set the icon color to white */
+        }
+
+        .bottom-bar > img {
+            border-radius: 100%;
+            width: 15%;
+
+        }
+
+        .bottom-bar > a >img{
+
+            width: 100%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#"><img src="../static/loop2.png" alt="Settings" style="float: left;"></a></li>
+        <li><a  href="#"><img  src="../static/settings1.png" alt="Settings"></a></li>
+    </ul>
+</nav>
+
+<header>
+
+    <div class="profile-info">
+        <img src="../static/profile.png">
+        <div class="right">
+            <h2>Arcadis</h2>
+            <p>Lokacioni: Rruga C</p>
+            <p>Vlerësimi: 4.2</p>
+        </div>
+    </div>
+</header>
+
+<!--<section class="historia-e-puneve">-->
+<!--    <h3>Historia e Puneve</h3>-->
+<!--    <ul class="tabela">-->
+<!--        <li>Arcadis</li>-->
+<!--        <li>Taogen</li>-->
+<!--        <li>Altrade</li>-->
+<!--    </ul>-->
+<!--</section>-->
+
+<div class="konkursi-card">
+    <h4 class="card-title">Konkursi ID: 123</h4>
+    <p class="card-text"><strong>Puna:</strong> Web Developer</p>
+    <p class="card-text"><strong>Kompania ID:</strong> 456</p>
+    <p class="card-text"><strong>Pershkrimi:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p class="card-text"><strong>Data:</strong> 2022-01-01</p>
+    <p class="card-text"><strong>Te Dhena Shtese:</strong> <span class="teDhenaShtese">Additional information goes here.</span></p>
+
+    <!-- View Details Button -->
+    <button class="btn btn-primary view-details-btn">View Details</button>
+</div>
+
+<!--<div class="comment-card">-->
+<!--    <img src="../static/profile.png">-->
+<!--    <h4 class="card-title">John Doe</h4>-->
+<!--    <div class="comment-info">-->
+<!--        <p class="p1">Some example text.</p>-->
+<!--        <p>4.2 <img src="../static/star.png"></p>-->
+<!--    </div>-->
+<!--</div>-->
+
+<footer>
+    <div class="bottom-bar">
+        <img src="../static/loop2.png"/>
+        <a href="#" class="btn btn-dark"><img src="/static/h.png" alt="foto"/></a>
+        <a href="#" class="btn btn-dark"><img src="/static/profile.png" alt="foto"/></a>
+
+
+    </div>
+</footer>
+
+</body>
+</html>
