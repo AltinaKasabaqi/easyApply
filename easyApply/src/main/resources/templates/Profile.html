@@ -180,6 +180,8 @@
             margin-top: auto; /* Push the footer to the bottom */
         }
 
+
+
         .bottom-bar {
             display: flex;
             justify-content: space-between;
@@ -229,10 +231,10 @@
     </div>
 </header>
 
-<div class="links-container">
-    <a th:href="@{/konkurset}" class="btn btn-link">Konkurset</a>
-    <a th:href="@{/punet}" class="btn btn-link">Punet/Pozitat</a>
-</div>
+<!--<div class="links-container">-->
+<!--    <a th:href="@{/konkurset}" class="btn btn-link">Konkurset</a>-->
+<!--    <a th:href="@{/punet}" class="btn btn-link">Punet/Pozitat</a>-->
+<!--</div>-->
 
 <!--<section class="historia-e-puneve">-->
 <!--    <h3>Historia e Puneve</h3>-->
@@ -252,7 +254,14 @@
     <p class="card-text"><strong>Te Dhena Shtese:</strong> <span class="teDhenaShtese">Additional information goes here.</span></p>
 
     <!-- View Details Button -->
-    <button class="btn btn-primary view-details-btn">View Details</button>
+    <button class="btn btn-primary view-details-btn" onclick="redirectToDashboard()">View Details</button>
+
+    <script>
+        function redirectToDashboard() {
+            // Change the URL to the dashboard page
+            window.location.href = './Dashboard.html';  // Replace '/dashboard' with the actual URL of your dashboard page
+        }
+    </script>
 </div>
 
 <!--<div class="comment-card">-->

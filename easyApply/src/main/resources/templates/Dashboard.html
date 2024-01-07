@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application System</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background-color: #3498db;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav ul li {
+            margin: 10px;
+        }
+
+        nav ul li a img{
+            float: right;
+            width: 20%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .application-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 300px;
+            margin-top: 5%;
+        }
+
+        .application-card h4 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .application-details {
+            color: #495057;
+        }
+
+        .details-section {
+            margin-top: 15px;
+        }
+
+        .details-section p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .details-section strong {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .action-btns {
+            margin-top: 15px;
+        }
+
+        .action-btns a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .view-details-btn {
+            background-color: #3498db;
+            border-color: #3498df;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-details-btn:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+
+
+
+        .bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Center items vertically */
+        }
+
+        .bottom-bar a {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin: 0 10px;
+            color: white; /* Set the icon color to white */
+        }
+
+        .bottom-bar > img {
+            border-radius: 100%;
+            width: 15%;
+
+        }
+
+        .bottom-bar > a >img{
+
+            width: 100%;
+        }
+
+        .title-section {
+            /*background-color: #3498db;*/
+            color: black;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .title-section h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+    </style>
+
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#"><img src="../static/loop2.png" alt="Settings" style="float: left;"></a></li>
+        <li><a  href="#"><img  src="../static/settings1.png" alt="Settings"></a></li>
+    </ul>
+</nav>
+
+<section class="title-section">
+    <h1>Aplikimet per konkursin 123</h1>
+</section>
+
+
+<div class="container">
+    <div class="application-card">
+        <h4 class="card-title">Application ID: 1</h4>
+        <div class="application-details">
+            <div class="details-section">
+                <p><strong>Applicant ID:</strong> 123</p>
+                <p><strong>Date:</strong> 2022-01-02</p>
+                <p><strong>Status:</strong> Pending</p>
+            </div>
+            <div class="details-section">
+                <p><strong>CV:</strong> <a href="/path/to/cv1.pdf" target="_blank">View CV</a></p>
+                <p><strong>Motivational Letter:</strong> <a href="/path/to/letter1.pdf" target="_blank">View Letter</a></p>
+            </div>
+        </div>
+        <div class="action-btns">
+            <a href="/path/to/application-details" class="btn btn-success view-details-btn">View Details</a>
+        </div>
+    </div>
+
+
+</div>
+
+<div class="container">
+    <div class="application-card">
+        <h4 class="card-title">Application ID: 1</h4>
+        <div class="application-details">
+            <div class="details-section">
+                <p><strong>Applicant ID:</strong> 123</p>
+                <p><strong>Date:</strong> 2022-01-02</p>
+                <p><strong>Status:</strong> Pending</p>
+            </div>
+            <div class="details-section">
+                <p><strong>CV:</strong> <a href="/path/to/cv1.pdf" target="_blank">View CV</a></p>
+                <p><strong>Motivational Letter:</strong> <a href="/path/to/letter1.pdf" target="_blank">View Letter</a></p>
+            </div>
+        </div>
+        <div class="action-btns">
+            <a href="/path/to/application-details" class="btn btn-success view-details-btn">View Details</a>
+        </div>
+    </div>
+
+
+</div>
+
+<footer>
+    <div class="bottom-bar">
+        <img src="../static/loop2.png"/>
+        <a href="#" ><img src="/static/h.png" alt="foto"/></a>
+        <a href="#"><img src="/static/profile.png" alt="foto"/></a>
+
+
+    </div>
+</footer>
+
+</body>
+</html>
