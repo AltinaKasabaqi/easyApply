@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 
 
-public class UserDetails {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int kompania_id;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -224,9 +224,9 @@
     <div class="profile-info">
         <img src="../static/profile.png">
         <div class="right">
-            <h2>Arcadis</h2>
-            <p>Lokacioni: Rruga C</p>
-            <p>Vlerësimi: 4.2</p>
+            <h2></h2>
+            <p></p>
+
         </div>
     </div>
 </header>
@@ -247,8 +247,8 @@
 
 <div class="konkursi-card">
     <h4 class="card-title">Konkursi ID: 123</h4>
-    <p class="card-text"><strong>Puna:</strong> Web Developer</p>
-    <p class="card-text"><strong>Kompania ID:</strong> 456</p>
+    <p class="card-text"><strong>Puna:</strong> Name : [[${user.emriKompanise}]]</p>
+    <p class="card-text"><strong>Kompania ID:</strong> [[${user.lokacioni}]]</p>
     <p class="card-text"><strong>Pershkrimi:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <p class="card-text"><strong>Data:</strong> 2022-01-01</p>
     <p class="card-text"><strong>Te Dhena Shtese:</strong> <span class="teDhenaShtese">Additional information goes here.</span></p>

@@ -86,11 +86,17 @@
 </div>
 
 <img src="easyA.png" alt="Logo" class="logo">
-
+<form action="/login" method="post">
+    <div th:if="${param.error}" class="alert alert-danger">Invalid email & password</div>
+    <div th:if="${param.logout}" class="alert alert-success">Logout Succesfully</div>
 <div class="login-container">
+
+
     <div class="form-group">
 
-        <input type="email" id="email" name="email" class="form-control" placeholder="Shkruaj email-in tënd">
+
+
+        <input type="email" id="email" name="username" class="form-control" placeholder="Shkruaj email-in tënd">
     </div>
 
 
@@ -106,6 +112,7 @@
     <button class="btn btn-login">Kyçu!</button>
     <br>
     <br>
+</form>
 
 </div>
 

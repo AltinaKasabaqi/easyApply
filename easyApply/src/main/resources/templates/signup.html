@@ -91,7 +91,7 @@
 </th:block>
 
 <div class="login-container">
-<form action="createUser" method="post">
+    <form action="createUser" method="post" th:action="@{/createUser}" th:object="${user}">
     <div class="form-group">
         <input type="text" id="emri" name="emri" class="form-control" placeholder="Emri">
     </div>
