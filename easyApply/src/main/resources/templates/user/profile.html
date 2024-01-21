@@ -141,21 +141,20 @@
         }
 
         .btn-link {
-            color: #fff; /* Text color */
-            background-color: #007bff; /* Background color */
-            padding: 8px 16px; /* Padding */
-            border: none; /* Remove border */
-            border-radius: 5px; /* Add border-radius for rounded corners */
+            color: #fff;
+            background-color: #007bff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
             text-decoration: none;
-            display: block; /* Set links to inline-block display */
-            margin: 5%; /* Add some space between links */
-            transition: background-color 0.3s ease-in-out; /* Add transition on hover */
+            display: block;
+            margin: 5%;
+            transition: background-color 0.3s ease-in-out;
         }
 
         .btn-link:hover {
-            background-color: #0056b3; /* Darker background color on hover */
+            background-color: #0056b3;
         }
-
 
         .view-details-btn {
             margin-top: 20px;
@@ -168,19 +167,16 @@
             transition: background-color 0.3s;
         }
 
-        .view-details-btn:hover {
+         .view-details-btn:hover {
             background-color: #2980b9;
         }
-
-        footer {
+         footer {
             background-color: #3498db;
             color: white;
             text-align: center;
             padding: 10px;
             margin-top: auto; /* Push the footer to the bottom */
         }
-
-
 
         .bottom-bar {
             display: flex;
@@ -199,30 +195,53 @@
         .bottom-bar > img {
             border-radius: 100%;
             width: 15%;
-
         }
 
-        .bottom-bar > a >img{
-
+        .bottom-bar > a > img {
             width: 100%;
         }
 
+        nav ul li a img {
+                width: 30px; /* Adjusted width */
+            }
+         nav ul li {
+            margin: 10px;
+        }
+         nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Adjusted alignment */
+
+        }
+         nav {
+            background-color: #3498db;
+            color: white;
+            text-align: center; /* Adjusted alignment */
+        }
+        .profile-info > img{
+            width:30px;
+        }
 
 
     </style>
+
+
 </head>
 <body>
 <nav>
     <ul>
-        <li><a href="#"><img src="loop2.png" alt="Settings" style="float: left;"></a></li>
-        <li><a  href="#"><img  src="settings1.png" alt="Settings"></a></li>
+        <li><a href="#"><img src="../loop2.png" alt="Settings" style="float: left;"></a></li>
+        <li><a href="user//" ><img src="../h.png" alt="foto"/></a></li>
+        <li><a  href="#"><img  src="../settings1.png" alt="Settings"></a></li>
+        <li><a href="/signin"><img src="../logout2.png" alt="Logout" title="Shkyqu"></a></li>
     </ul>
 </nav>
 
 <header>
-
     <div class="profile-info">
-        <img src="../static/profile.png">
+        <img src="../profile.png">
         <div class="right">
             <h2></h2>
             <p></p>
@@ -275,13 +294,9 @@
 
 <footer>
     <div class="bottom-bar">
-        <img src="../static/loop2.png"/>
-        <a href="#" class="btn btn-dark"><img src="/static/h.png" alt="foto"/></a>
-        <a href="#" class="btn btn-dark"><img src="/static/profile.png" alt="foto"/></a>
-
-
+        <img src="../loop2.png" />
+        <a href="user/profile"><img src="../profile.png" alt="foto" /></a>
     </div>
 </footer>
-
 </body>
 </html>

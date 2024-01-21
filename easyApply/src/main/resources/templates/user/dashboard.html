@@ -19,23 +19,25 @@
         nav {
             background-color: #3498db;
             color: white;
+            padding:20px;
         }
 
-        nav ul {
+      nav ul {
             list-style: none;
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center; /* Adjusted alignment */
         }
 
         nav ul li {
             margin: 10px;
         }
 
-        nav ul li a img{
-            float: right;
-            width: 20%;
+        nav ul li a img {
+            width: 30px;
+            margin: 0;
+            display: block;
         }
 
         .container {
@@ -154,9 +156,11 @@
 <body>
 <nav>
     <ul>
-        <li><a href="#"><img src="loop2.png" alt="Settings" style="float: left;"></a></li>
-        <li><a  href="#"><img  src="settings1.png" alt="Settings"></a></li>
-        <li><a  href="/logout"> Logout</a></li>
+        <li><a href="#"><img src="../loop2.png" alt="Settings" title="search" style="float: left;"></a></li>
+        <li><a href="user//" ><img src="../h.png" alt="foto"/></a></li>
+        <li><a  href="#"><img  src="../settings1.png" alt="Settings" title="Settings"></a></li>
+        <li><a  href="/user/departamentiForm"><img  src="../addmore1.png" alt="Shto Departamente" title="Shto Departamente"></a></li>
+        <li><a  href="/signin"><img  src="../logout2.png" alt="Logout" title="Shkyqu"></a></li>
     </ul>
 </nav>
 
@@ -164,6 +168,26 @@
     <h1>Aplikimet per konkursin 123</h1>
 </section>
 
+<div class="container">
+    <div class="application-card">
+        <h4 class="card-title">Application ID: 1</h4>
+        <div class="application-details">
+            <div class="details-section">
+                <p><strong>Applicant ID:</strong> 123</p>
+                <p><strong>Date:</strong> 2022-01-02</p>
+                <p><strong>Status:</strong> Pending</p>
+            </div>
+            <div class="details-section">
+                <p><strong>CV:</strong> <a href="/path/to/cv1.pdf" target="_blank">View CV</a></p>
+                <p><strong>Motivational Letter:</strong> <a href="/path/to/letter1.pdf" target="_blank">View Letter</a></p>
+            </div>
+        </div>
+        <div class="action-btns">
+            <a href="/path/to/application-details" class="btn btn-success view-details-btn">View Details</a>
+        </div>
+    </div>
+</div>
+
 
 <div class="container">
     <div class="application-card">
@@ -186,38 +210,11 @@
 
 
 </div>
-
-<div class="container">
-    <div class="application-card">
-        <h4 class="card-title">Application ID: 1</h4>
-        <div class="application-details">
-            <div class="details-section">
-                <p><strong>Applicant ID:</strong> 123</p>
-                <p><strong>Date:</strong> 2022-01-02</p>
-                <p><strong>Status:</strong> Pending</p>
-            </div>
-            <div class="details-section">
-                <p><strong>CV:</strong> <a href="/path/to/cv1.pdf" target="_blank">View CV</a></p>
-                <p><strong>Motivational Letter:</strong> <a href="/path/to/letter1.pdf" target="_blank">View Letter</a></p>
-            </div>
-        </div>
-        <div class="action-btns">
-            <a href="/path/to/application-details" class="btn btn-success view-details-btn">View Details</a>
-        </div>
-    </div>
-
-
-</div>
-
 <footer>
     <div class="bottom-bar">
-        <img src="loop2.png"/>
-        <a href="#" ><img src="h.png" alt="foto"/></a>
-        <a href="#"><img src="profile.png" alt="foto"/></a>
-
-
+        <img src="../loop2.png"/>
+        <a href="user/profile"><img src="../profile.png" alt="foto"/></a>
     </div>
 </footer>
-
 </body>
 </html>
