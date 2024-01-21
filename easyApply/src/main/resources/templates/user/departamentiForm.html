@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma e Departmenteve</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Use your background color */
+        }
+
+        nav {
+            background-color: #3498db;
+            color: white;
+            text-align: center; /* Adjusted alignment */
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center; /* Adjusted alignment */
+
+        }
+
+        nav ul li {
+            margin: 10px;
+        }
+
+        nav ul li a img {
+            width: 30px; /* Adjusted width */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            margin-top: 5%;
+            margin-bottom: 5%;
+        }
+
+        .application-card {
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%; /* Adjusted width */
+            max-width: 500px; /* Set a maximum width if needed */
+            margin-top: 5%;
+        }
+
+        .application-card h4 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+
+        .application-details {
+            color: #495057;
+        }
+
+        .details-section {
+            margin-top: 15px;
+        }
+
+        .details-section p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        .details-section strong {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .action-btns {
+            margin-top: 15px;
+        }
+
+        .action-btns a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .view-details-btn {
+            background-color: #3498db;
+            border-color: #3498df;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-details-btn:hover {
+            background-color: #218838;
+        }
+
+        footer {
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: auto; /* Push the footer to the bottom */
+        }
+
+        .bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center; /* Center items vertically */
+        }
+
+        .bottom-bar a {
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin: 0 10px;
+            color: white; /* Set the icon color to white */
+        }
+
+        .bottom-bar > img {
+            border-radius: 100%;
+            width: 15%;
+        }
+
+        .bottom-bar > a > img {
+            width: 100%;
+        }
+
+        .title-section {
+            color: black;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .title-section h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+
+        form {
+            width: 100%;
+            max-width: 300px;
+            margin: auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input.form-control {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+
+        button.btn-primary {
+            background-color: #3498db;
+            border-color: #3498db;
+        }
+
+        button.btn-primary:hover {
+            background-color: #218838;
+        }
+    </style>
+
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="#"><img src="../loop2.png" alt="Search" title="Kerko"></a></li>
+        <li><a href="user//" ><img src="../h.png" alt="foto" tittle="Kryefaqja"/></a></li>
+        <li><a href="#"><img src="../settings1.png" alt="Settings" title="Cilesimet"></a></li>
+        <li><a href="/signin"><img src="../logout2.png" alt="Logout" title="Shkyqu"></a></li>
+    </ul>
+</nav>
+
+<section class="title-section">
+    <h1>Shto Departmentin</h1>
+</section>
+
+<div class="container">
+    <form class="application-card" action="/user/departamentiForm" method="post" th:object="${departamenti}">
+        <div class="form-group">
+            <label for="departmenti">Emri Departamentit:</label>
+            <input type="text"  name="departamenti  " class="form-control" id="departmenti" placeholder="Emri Departamentit" required>
+        </div>
+
+        <div class="form-group">
+            <label for="pershkrimi">Pershkrimi:</label>
+            <input type="text" name="pershkrimi" class="form-control" id="pershkrimi" placeholder="Shto Pershkrimin">
+        </div>
+
+        <div class="action-btns">
+            <button type="submit" class="btn btn-primary">Shto Departmentin</button>
+        </div>
+    </form>
+</div>
+<footer>
+    <div class="bottom-bar">
+        <img src="../loop2.png" />
+        <a href="user/profile"><img src="../profile.png" alt="foto" title="Profili juaj" /></a>
+
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>
