@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class HomeController {
     @Autowired
     private UserService userService;
+
     @GetMapping("/")
     public String home(){
         return "FirstPage";

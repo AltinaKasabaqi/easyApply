@@ -15,7 +15,7 @@ public class Departamenti {
     private int departamentiId;
 
     @ManyToOne
-    @JoinColumn(name = "kompania_id",nullable = false)
+    @JoinColumn(name = "kompania_id",nullable = true)
     private User kompania;
 
     @Column(name = "departamenti")
