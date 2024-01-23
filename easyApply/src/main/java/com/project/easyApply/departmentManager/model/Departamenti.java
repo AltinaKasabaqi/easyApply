@@ -14,9 +14,9 @@ public class Departamenti {
     @Column(name = "departamenti_id")
     private int departamentiId;
 
-    @ManyToOne
-    @JoinColumn(name = "kompania_id",nullable = true)
-    private User kompania;
+
+    @Column(name = "kompania_id")
+    private int kompania;
 
     @Column(name = "departamenti")
     private String departamenti;
@@ -27,7 +27,7 @@ public class Departamenti {
     public Departamenti() {
     }
 
-    public Departamenti(int departamentiId, User kompania, String departamenti, String pershkrimi) {
+    public Departamenti(int departamentiId, int kompania, String departamenti, String pershkrimi) {
         this.departamentiId = departamentiId;
         this.kompania = kompania;
         this.departamenti = departamenti;
@@ -42,11 +42,11 @@ public class Departamenti {
         this.departamentiId = departamentiId;
     }
 
-    public User getKompania() {
+    public int getKompania() {
         return kompania;
     }
 
-    public void setKompania(User kompania) {
+    public void setKompania(int kompania) {
         this.kompania = kompania;
     }
 

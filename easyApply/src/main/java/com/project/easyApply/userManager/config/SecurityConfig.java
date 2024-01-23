@@ -49,20 +49,4 @@ public class SecurityConfig {
 
 }
 
-//        http.csrf().disable()
-//                .authorizeRequests(authorize ->
-//                        authorize
-//                                .requestMatchers("/FirstPage", "/signup", "/signin").permitAll()
-//                                .anyRequest().authenticated()
-//                )
-//                .formLogin(form -> form
-//                        .loginPage("/login")
-//                        .loginProcessingUrl("/login")
-//                        .defaultSuccessUrl("/dashboard")
-//                        .permitAll()
-//                )
-//                .logout(logout -> logout
-//                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-//                        .permitAll()
-//                );
-//        return http.build();
+

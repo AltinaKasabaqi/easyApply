@@ -51,13 +51,13 @@ public class DepartamentiController {
             newDepartamenti.setDepartamenti(departamenti);
             newDepartamenti.setPershkrimi(pershkrimi);
 
-            Optional<User> company = userService.getUser(1);
-
-            if(company == null){
-                return "Could not find the given company";
-            }
-
-            newDepartamenti.setKompania(company.get());
+//            Optional<User> company = userService.getUser(9);
+//
+//            if(company == null){
+//                return "Could not find the given company";
+//            }
+//
+//            newDepartamenti.setKompania(company.get());
 
             // Save the newDepartamenti to the database
             Departamenti savedDepartamenti = departamentiService.createDepartamenti(newDepartamenti);
