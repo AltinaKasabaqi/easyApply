@@ -29,6 +29,9 @@ public class HomeController {
     @GetMapping("/dashboard")
     public String dashboard(){return "dashboard";}
 
+//    @GetMapping ("user/profile")
+//    public String Profile() {return "profile";}
+
 
 @PostMapping("/createUser")
 public String createuser(@ModelAttribute User user, RedirectAttributes redirectAttributes) {

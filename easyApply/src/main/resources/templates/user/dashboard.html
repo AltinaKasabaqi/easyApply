@@ -40,46 +40,67 @@
             display: block;
         }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            margin-top: 5%;
-            margin-bottom: 5%;
-        }
 
-        .application-card {
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        .konkursi-card {
+            margin: 20px;
             padding: 20px;
-            width: 300px;
-            margin-top: 5%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        .application-card h4 {
-            color: #007bff;
-            margin-bottom: 15px;
-        }
-
-        .application-details {
-            color: #495057;
-        }
-
-        .details-section {
-            margin-top: 15px;
-        }
-
-        .details-section p {
-            margin: 0;
-            font-size: 14px;
-        }
-
-        .details-section strong {
+        .card-title {
+            font-size: 24px;
             font-weight: bold;
-            margin-right: 5px;
+            color: #3498db;
+        }
+
+        .card-text {
+            margin-top: 10px;
+        }
+
+        .teDhenaShtese {
+            font-style: italic;
+            color: #666;
+        }
+
+        .additional-data {
+            margin-bottom: 10px; /* Shto një distancë poshtë të dhënave shtesë */
+        }
+
+        .btn-link {
+            color: #fff;
+            background-color: #007bff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+            margin: 5%;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .btn-link:hover {
+            background-color: #0056b3;
+        }
+
+        .view-details-btn {
+            width:45%;
+            height:40%;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+
+        }
+
+         .view-details-btn:hover {
+            background-color: #2980b9;
         }
 
         .action-btns {
@@ -164,51 +185,29 @@
     </ul>
 </nav>
 
-<section class="title-section">
-    <h1>Aplikimet per konkursin 123</h1>
-</section>
 
-<div class="container">
-    <div class="application-card">
-        <h4 class="card-title">Application ID: 1</h4>
-        <div class="application-details">
-            <div class="details-section">
-                <p><strong>Applicant ID:</strong> 123</p>
-                <p><strong>Date:</strong> 2022-01-02</p>
-                <p><strong>Status:</strong> Pending</p>
-            </div>
-            <div class="details-section">
-                <p><strong>CV:</strong> <a href="/path/to/cv1.pdf" target="_blank">View CV</a></p>
-                <p><strong>Motivational Letter:</strong> <a href="/path/to/letter1.pdf" target="_blank">View Letter</a></p>
-            </div>
+
+<div th:if="${not #lists.isEmpty(competitions)}">
+    <h2>Your Competitions:</h2>
+    <div class="konkursi-card" th:each="competition : ${competitions}">
+        <h4 class="card-title" th:text="'Konkursi ID: ' + ${competition.konkursiId}"></h4>
+        <p class="card-text"><strong>Kompania ID:</strong> <span th:text="${competition.kompaniaId}"></span></p>
+        <p class="card-text"><strong>Pershkrimi:</strong> <span th:text="${competition.pershkrimi}"></span></p>
+        <p class="card-text"><strong>Data:</strong> <span th:text="${competition.data}"></span></p>
+        <p class="card-text"><strong>Te Dhena Shtese:</strong> <span class="teDhenaShtese" th:text="${competition.teDhenaShtese}"></span></p>
+        <div class="additional-data">
+            <a class="link-details" th:href="@{'/aplikimet/' + ${competition.konkursiId}}">Shiko Aplikimet</a>
         </div>
-        <div class="action-btns">
-            <a href="/path/to/application-details" class="btn btn-success view-details-btn">View Details</a>
-        </div>
+        <button class="btn btn-primary view-details-btn" th:attr="data-competition-id=${competition.konkursiId}" onclick="fshijKonkursin(this.getAttribute('data-competition-id'))">Fshij Konkursin</button>
+        <button class="btn btn-primary view-details-btn" th:onclick="">Edito</button>
+
     </div>
+</div>
+<div th:if="${#lists.isEmpty(competitions)}">
+    <p>No competitions found</p>
 </div>
 
 
-<div class="container">
-    <div class="application-card">
-        <h4 class="card-title">Application ID: 1</h4>
-        <div class="application-details">
-            <div class="details-section">
-                <p><strong>Applicant ID:</strong> 123</p>
-                <p><strong>Date:</strong> 2022-01-02</p>
-                <p><strong>Status:</strong> Pending</p>
-            </div>
-            <div class="details-section">
-                <p><strong>CV:</strong> <a href="/path/to/cv1.pdf" target="_blank">View CV</a></p>
-                <p><strong>Motivational Letter:</strong> <a href="/path/to/letter1.pdf" target="_blank">View Letter</a></p>
-            </div>
-        </div>
-        <div class="action-btns">
-            <a href="/path/to/application-details" class="btn btn-success view-details-btn">View Details</a>
-        </div>
-    </div>
-
-//// commiiiiiit
 </div>
 <footer>
     <div class="bottom-bar">
@@ -216,5 +215,22 @@
         <a href="user/profile"><img src="../profile.png" alt="foto"/></a>
     </div>
 </footer>
+<script type="text/javascript">
+    function fshijKonkursin(competitionId) {
+        fetch('/user/dashboard/' + competitionId, {
+            method: 'DELETE'
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Konkursi u fshi me sukses.');
+            } else {
+                console.error('Gabim gjatë fshirjes së konkursit.');
+            }
+        })
+        .catch(error => {
+            console.error('Gabim gjatë kërkesës DELETE:', error);
+        });
+    }
+</script>
 </body>
 </html>

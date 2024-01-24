@@ -48,6 +48,31 @@
         }
 
 
+           .button-section {
+            display: block;
+
+
+
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-section button {
+<!--            color: #f8f9fa;-->
+            background-color: transparent;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+            width: 80%; /* Përcaktoj një width të caktuar */
+            display: block; /* Vendos butonat në një rresht */
+            margin: 5px; /* Shtoj një hapsirë mes butonave */
+        }
+
+        .button-section button:hover {
+            background-color: #495057;
+        }
 
         .profile-info {
             flex-grow: 1;
@@ -61,115 +86,8 @@
             float: right;
         }
 
-        .historia-e-puneve {
-            margin: 10%;
-            text-align: center; /* Center the content */
-        }
 
-        .tabela {
-            border: solid 1px black;
-            list-style: none;
-            border-collapse: collapse;
-            padding: 10px;
-            display: inline-block;
-            width: 100%;
 
-        }
-
-        .tabela li {
-            border-bottom: 1px solid #ccc;
-            padding: 10px;
-        }
-
-        /*.comment-card {*/
-        /*    margin: 20px;*/
-        /*    padding: 20px;*/
-        /*    border: 1px solid #ccc;*/
-        /*    overflow: hidden; !* Clear the float *!*/
-        /*}*/
-
-        /*.comment-card img {*/
-        /*    width: 10%;*/
-        /*    float: left;*/
-        /*    border-radius: 50%;*/
-        /*    margin-right: 20px;*/
-        /*}*/
-
-        /*.comment-card h4 {*/
-        /*    float: left;*/
-        /*    padding: 0;*/
-        /*    margin-top: 3%;*/
-        /*}*/
-
-        /*.comment-info {*/
-        /*    padding-top: 5%;*/
-        /*    float: left;*/
-        /*    margin: 0%;*/
-        /*}*/
-
-        /*.p1{*/
-        /*    padding-top: 20%;*/
-        /*    float: left;*/
-        /*    margin-left:0%;*/
-        /*}*/
-
-        /*.comment-info p img {*/
-        /*    width: 20px;*/
-        /*}*/
-
-        .konkursi-card {
-            margin: 20px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #3498db;
-        }
-
-        .card-text {
-            margin-top: 10px;
-        }
-
-        .teDhenaShtese {
-            font-style: italic;
-            color: #666;
-        }
-
-        .btn-link {
-            color: #fff;
-            background-color: #007bff;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            display: block;
-            margin: 5%;
-            transition: background-color 0.3s ease-in-out;
-        }
-
-        .btn-link:hover {
-            background-color: #0056b3;
-        }
-
-        .view-details-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-         .view-details-btn:hover {
-            background-color: #2980b9;
-        }
          footer {
             background-color: #3498db;
             color: white;
@@ -225,6 +143,7 @@
         }
 
 
+
     </style>
 
 
@@ -250,47 +169,14 @@
     </div>
 </header>
 
-<!--<div class="links-container">-->
-<!--    <a th:href="@{/konkurset}" class="btn btn-link">Konkurset</a>-->
-<!--    <a th:href="@{/punet}" class="btn btn-link">Punet/Pozitat</a>-->
-<!--</div>-->
-
-<!--<section class="historia-e-puneve">-->
-<!--    <h3>Historia e Puneve</h3>-->
-<!--    <ul class="tabela">-->
-<!--        <li>Arcadis</li>-->
-<!--        <li>Taogen</li>-->
-<!--        <li>Altrade</li>-->
-<!--    </ul>-->
-<!--</section>-->
-
-<div class="konkursi-card">
-    <h4 class="card-title">Konkursi ID: 123</h4>
-    <p class="card-text"><strong>Puna:</strong> Name : [[${user.emriKompanise}]]</p>
-    <p class="card-text"><strong>Kompania ID:</strong> [[${user.lokacioni}]]</p>
-    <p class="card-text"><strong>Pershkrimi:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <p class="card-text"><strong>Data:</strong> 2022-01-01</p>
-    <p class="card-text"><strong>Te Dhena Shtese:</strong> <span class="teDhenaShtese">Additional information goes here.</span></p>
-
-    <!-- View Details Button -->
-    <button class="btn btn-primary view-details-btn" onclick="redirectToDashboard()">View Details</button>
-
-    <script>
-        function redirectToDashboard() {
-            // Change the URL to the dashboard page
-            window.location.href = './Dashboard.html';  // Replace '/dashboard' with the actual URL of your dashboard page
-        }
-    </script>
+<div class="button-section">
+    <center>
+    <button onclick="window.location.href='/shtoKonkurset'">Shto Konkurset</button>
+    <button onclick="window.location.href='/shtoDepartamentin'">Shto Departamentin</button>
+    <button onclick="window.location.href='user/dashboard'">Konkurset</button>
+    </center>
 </div>
 
-<!--<div class="comment-card">-->
-<!--    <img src="../static/profile.png">-->
-<!--    <h4 class="card-title">John Doe</h4>-->
-<!--    <div class="comment-info">-->
-<!--        <p class="p1">Some example text.</p>-->
-<!--        <p>4.2 <img src="../static/star.png"></p>-->
-<!--    </div>-->
-<!--</div>-->
 
 <footer>
     <div class="bottom-bar">
