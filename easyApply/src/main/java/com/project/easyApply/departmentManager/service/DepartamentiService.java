@@ -7,4 +7,6 @@ public interface DepartamentiService {
     public Departamenti createDepartamenti (Departamenti departamenti);
 
     public boolean checkDepartamenti (String departamenti);
+
+
 }

@@ -29,11 +29,10 @@ public class UserServiceImpl implements UserService{
         return userRepo.existsByEmail(email);
     }
 
-
-
     @Override
     public int findUserIdByEmail(String email) {
-        return userRepo.findUserIdByEmail(email);
+        return userRepo.findUserIdByEmail((email));
     }
+
 
 }

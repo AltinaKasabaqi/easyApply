@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forma e Departmenteve</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
     <style>
         body {
@@ -29,7 +32,6 @@
             padding: 0;
             display: flex;
             justify-content: center; /* Adjusted alignment */
-
         }
 
         nav ul li {
@@ -162,7 +164,7 @@
             font-weight: bold;
         }
 
-        input.form-control {
+        input.form-control, select.form-control {
             width: 100%;
             padding: 8px;
             box-sizing: border-box;
@@ -183,8 +185,10 @@
 <body>
 <nav>
     <ul>
-        <li><a href="#"><img src="../loop2.png" alt="Search" title="Kerko"></a></li>
-        <li><a href="/dashboard" ><img src="../h.png" alt="foto" tittle="Dashboard"/></a></li>
+        <li><a href="#"><img src="../loop2.png" alt="Settings" title="search" style="float: left;"></a></li>
+        <li><a href="#"><img src="../h.png" alt="foto" title="Dashboard" onclick="redirectToDashboard()"/></a>
+        </li>
+        <li><a href="/user/departamentiForm"><img src="../addmore1.png" alt="Shto Departamente" title="Shto Departamente"></a></li>
         <li><a href="/signin"><img src="../logout2.png" alt="Logout" title="Shkyqu"></a></li>
     </ul>
 </nav>
@@ -195,19 +199,34 @@
     <p class="text-center fs-3" th:text="${msg}"></p>
 </th:block>
 <div class="container">
-    <form class="application-card" action="/user/create-department" method="post" th:action="@{/user/create-department}" th:object="${departamenti}">
+    <form class="application-card" action="/user/create-competition" method="post" th:action="@{/user/create-competition}" th:object="${competition}">
         <div class="form-group">
-            <label for="departamenti">Emri Departamentit:</label>
-            <input type="text" name="departamenti" class="form-control" id="departamenti" placeholder="Emri Departamentit" required>
-        </div>
+            <label for="departamenti">Departamenti:</label>
+            <select name="departamenti" class="form-control" id="departamenti" required>
+                <!-- Upade the code to get the options from db table konkursi!!!!!-->
+                <option th:each="konkursi : ${konkursiList}" th:value="${konkursi.id}" th:text="${konkursi.emri}">
 
+                </option>
+            </select>
+        </div>
         <div class="form-group">
-            <label for="pershkrimi">Pershkrimi:</label>
-            <input type="text" name="pershkrimi" class="form-control" id="pershkrimi" placeholder="Shto Pershkrimin">
+            <label for="date">Date:</label>
+            <div class="input-group">
+                <input type="text" name="date" class="form-control datepicker" id="date" placeholder="Data e perfundimit">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="fa fa-calendar"></i> <!-- You can replace this with your calendar icon -->
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="te_dhena_shtese">Te Dhena Shtese:</label>
+            <input type="text" name="te_dhena_shtese" class="form-control" id="te_dhena_shtese" placeholder="Shto Te Dhena Shtese">
         </div>
 
         <div class="action-btns">
-            <button type="submit" class="btn btn-primary">Shto Departmentin</button>
+            <button type="submit" class="btn btn-primary">Shto Kompetitionin</button>
         </div>
     </form>
 </div>
@@ -215,22 +234,30 @@
     <div class="bottom-bar">
         <img src="../loop2.png" />
         <a href="user/profile"><img src="../profile.png" alt="foto" title="Profili juaj" /></a>
-
     </div>
 </footer>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script>
-   document.addEventListener('DOMContentLoaded', function() {
-    var messageElement = document.querySelector('.fs-3');
-    if (messageElement && messageElement.textContent.trim() === 'Registered') {
-        setTimeout(function() {
-            // Redirect to dashboard
-            window.location.href = '/user/profile';
-        }, 5000);
-    }
-});
+    document.addEventListener('DOMContentLoaded', function() {
+        var messageElement = document.querySelector('.fs-3');
+        if (messageElement && messageElement.textContent.trim() === 'Registered') {
+            setTimeout(function() {
+                // Redirect to dashboard
+                window.location.href = '/user/profile';
+            }, 5000);
+        }
+    });
+
+     $(document).ready(function () {
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd', // Set your desired date format
+            autoclose: true
+            // Add any other options you need
+        });
+    });
 
 
         function redirectToDashboard() {
