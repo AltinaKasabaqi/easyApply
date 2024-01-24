@@ -2,6 +2,7 @@ package com.project.easyApply.userManager.controller;
 
 import com.project.easyApply.userManager.model.User;
 import com.project.easyApply.userManager.service.UserService;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -48,10 +49,6 @@ public String createuser(@ModelAttribute User user, RedirectAttributes redirectA
 
     return "redirect:/signup";
 }
-
-
-
-
 
 
 }

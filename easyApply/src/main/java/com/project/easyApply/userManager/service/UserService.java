@@ -10,8 +10,7 @@ public interface UserService {
 
     public boolean checkEmail (String email);
 
-
-    public  int findUserIdByEmail(String email);
+    public int findUserIdByEmail(String email);
 
 
 }

@@ -14,7 +14,7 @@ public class DepartamentiServiceImpl implements DepartamentiService{
 
     @Autowired
     private DepartamentiRepository departamentiRepository;
-//commit
+
     @Autowired
     private UserService userService;
 
@@ -22,10 +22,8 @@ public class DepartamentiServiceImpl implements DepartamentiService{
     public Departamenti createDepartamenti(Departamenti departamenti){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-
-        if (authentication.getPrincipal() instanceof CustomUserDetails) {
+        if(authentication.getPrincipal() instanceof CustomUserDetails){
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-
 
             int userId = userService.findUserIdByEmail(userDetails.getUsername());
             departamenti.setKompania(userId);

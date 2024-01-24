@@ -14,7 +14,6 @@ public class Departamenti {
     @Column(name = "departamenti_id")
     private int departamentiId;
 
-
     @Column(name = "kompania_id")
     private int kompania;
 
@@ -27,11 +26,18 @@ public class Departamenti {
     public Departamenti() {
     }
 
-    public Departamenti(int departamentiId, int kompania, String departamenti, String pershkrimi) {
+    public Departamenti(int departamentiId,String departamenti, String pershkrimi) {
         this.departamentiId = departamentiId;
-        this.kompania = kompania;
+
         this.departamenti = departamenti;
         this.pershkrimi = pershkrimi;
+    }
+    public int getKompania(){
+        return kompania;
+    }
+
+    public void setKompania(int kompania){
+        this.kompania = kompania;
     }
 
     public int getDepartamentiId() {
@@ -40,14 +46,6 @@ public class Departamenti {
 
     public void setDepartamentiId(int departamentiId) {
         this.departamentiId = departamentiId;
-    }
-
-    public int getKompania() {
-        return kompania;
-    }
-
-    public void setKompania(int kompania) {
-        this.kompania = kompania;
     }
 
     public String getDepartamenti() {

@@ -86,9 +86,9 @@
 </div>
 
 <img src="easyA.png" alt="Logo" class="logo">
-<th:block th:if="${msg}">
-    <p class="text-center fs-3" th:text="${msg}"></p>
-</th:block>
+<div th:if="${msg}" class="alert alert-success text-center fs-3">
+    <p th:text="${msg}"></p>
+</div>
 
 <div class="login-container">
     <form action="createUser" method="post" th:action="@{/createUser}" th:object="${user}">

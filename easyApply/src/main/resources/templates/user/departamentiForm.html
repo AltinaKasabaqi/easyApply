@@ -184,20 +184,16 @@
 <nav>
     <ul>
         <li><a href="#"><img src="../loop2.png" alt="Search" title="Kerko"></a></li>
-        <li><a href="user/dashboard" ><img src="../h.png" alt="foto" tittle="Dashboard"/></a></li>
-        <li><a href="#"><img src="../settings1.png" alt="Settings" title="Cilesimet"></a></li>
+        <li><a href="/dashboard" ><img src="../h.png" alt="foto" tittle="Dashboard"/></a></li>
         <li><a href="/signin"><img src="../logout2.png" alt="Logout" title="Shkyqu"></a></li>
     </ul>
 </nav>
-
 <section class="title-section">
     <h1>Shto Departmentin</h1>
 </section>
-
 <th:block th:if="${msg}">
     <p class="text-center fs-3" th:text="${msg}"></p>
 </th:block>
-
 <div class="container">
     <form class="application-card" action="/user/create-department" method="post" th:action="@{/user/create-department}" th:object="${departamenti}">
         <div class="form-group">
@@ -235,7 +231,6 @@
         }, 5000);
     }
 });
-
 </script>
 </body>
 </html>
