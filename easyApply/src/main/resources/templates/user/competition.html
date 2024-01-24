@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forma e Departmenteve</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
     <style>
         body {
@@ -204,12 +207,17 @@
                 </option>
             </select>
         </div>
-
         <div class="form-group">
             <label for="date">Date:</label>
-            <input type="text" name="date" class="form-control" id="date" value="<!-- Add Thymeleaf expression for actual date -->" readonly>
+            <div class="input-group">
+                <input type="text" name="date" class="form-control datepicker" id="date" placeholder="Data e perfundimit">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="fa fa-calendar"></i> <!-- You can replace this with your calendar icon -->
+                    </span>
+                </div>
+            </div>
         </div>
-
         <div class="form-group">
             <label for="te_dhena_shtese">Te Dhena Shtese:</label>
             <input type="text" name="te_dhena_shtese" class="form-control" id="te_dhena_shtese" placeholder="Shto Te Dhena Shtese">
@@ -229,6 +237,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         var messageElement = document.querySelector('.fs-3');
@@ -238,6 +247,14 @@
                 window.location.href = '/user/profile';
             }, 5000);
         }
+    });
+
+     $(document).ready(function () {
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd', // Set your desired date format
+            autoclose: true
+            // Add any other options you need
+        });
     });
 </script>
 </body>
