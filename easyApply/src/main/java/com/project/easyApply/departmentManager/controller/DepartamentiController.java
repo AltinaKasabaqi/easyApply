@@ -4,6 +4,7 @@ import com.project.easyApply.departmentManager.model.Departamenti;
 import com.project.easyApply.departmentManager.repository.DepartamentiRepository;
 import com.project.easyApply.departmentManager.service.DepartamentiService;
 import com.project.easyApply.userManager.service.UserService;
+import jakarta.persistence.EntityExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,24 +38,25 @@ public class DepartamentiController {
             RedirectAttributes redirectAttributes) {
 
 
-        boolean exists = departamentiService.checkDepartamenti(departamenti);
+     try {
+         Departamenti newDepartamenti = new Departamenti();
+         newDepartamenti.setDepartamenti(departamenti);
+         newDepartamenti.setPershkrimi(pershkrimi);
 
-        if (exists) {
-            redirectAttributes.addFlashAttribute("msg", "Departamenti ekziston");
-        } else {
+         Departamenti savedDepartamenti = departamentiService.createDepartamenti(newDepartamenti);
 
-            Departamenti newDepartamenti = new Departamenti();
-            newDepartamenti.setDepartamenti(departamenti);
-            newDepartamenti.setPershkrimi(pershkrimi);
+         if (savedDepartamenti != null) {
+             redirectAttributes.addFlashAttribute("msg", "Registered");
+         } else {
+             redirectAttributes.addFlashAttribute("msg", "Something went wrong while saving the department");
+         }
+     }catch(EntityExistsException e){
+         //Kompania e ka departamentin me emer tnjejte
+         redirectAttributes.addFlashAttribute("msg","Ky departament ekziston tashme");
+        }catch (Exception e){
+         redirectAttributes.addFlashAttribute(e);
+     }
 
-            Departamenti savedDepartamenti = departamentiService.createDepartamenti(newDepartamenti);
-
-            if (savedDepartamenti != null) {
-                redirectAttributes.addFlashAttribute("msg", "Registered");
-            } else {
-                redirectAttributes.addFlashAttribute("msg", "Something went wrong while saving the department");
-            }
-        }
         return "redirect:/user/departamentiForm";
     }
 }
