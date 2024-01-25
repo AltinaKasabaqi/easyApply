@@ -37,7 +37,7 @@ public class CompetitionController {
         return "user/dashboard";
     }
 
-    @PostMapping("/createCompetition")
+    @PostMapping("/user/createCompetition")
     public String createCompetition(@ModelAttribute Competition competition, RedirectAttributes redirectAttributes) {
          competitionService.createCompetition(competition);
         return "redirect:/signup";

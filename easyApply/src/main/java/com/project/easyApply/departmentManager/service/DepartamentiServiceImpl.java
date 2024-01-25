@@ -10,6 +10,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -20,6 +22,25 @@ public class DepartamentiServiceImpl implements DepartamentiService{
 
     @Autowired
     private UserService userService;
+
+    @Override
+    public List<Departamenti> getDepartamentetByCompanyId() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        int userId;
+
+        if(authentication.getPrincipal() instanceof CustomUserDetails){
+            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+            userId = userService.findUserIdByEmail(userDetails.getUsername());
+        }else {
+            userId = -1;
+        }
+        if(userId != -1){
+            return departamentiRepository.findByKompania(userId);
+        }else{
+            return Collections.emptyList();
+        }
+    }
+
 
     @Override
     public Departamenti createDepartamenti(Departamenti departamenti){
@@ -48,5 +69,10 @@ public class DepartamentiServiceImpl implements DepartamentiService{
     }
 
 
+
+    @Override
+    public void fshijDepartamentin(int departamentiId) {
+        departamentiRepository.deleteById(departamentiId);
     }
+}
 

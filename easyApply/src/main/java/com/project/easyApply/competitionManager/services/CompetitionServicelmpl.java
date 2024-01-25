@@ -40,7 +40,6 @@ public class CompetitionServicelmpl implements CompetitionService {
             // Ju mund të vendosni një vlerë parazgjedhëse nëse përdoruesi nuk është i loguar
             userId = -1;
         }
-
         if (userId != -1) {
             return compRepo.findByKompaniaId(userId);
         } else {

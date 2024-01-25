@@ -8,8 +8,6 @@ import java.util.*;
 public interface CompetitionService {
     public List<Competition> getCompetitionsByCompanyId();
 
-    
-
     public Competition createCompetition(Competition competition);
 
     void mbylleKonkursin();
