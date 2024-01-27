@@ -199,7 +199,7 @@
             <a class="link-details" th:href="@{'/aplikimet/' + ${competition.konkursiId}}">Shiko Aplikimet</a>
         </div>
         <button class="btn btn-primary view-details-btn" th:attr="data-competition-id=${competition.konkursiId}" onclick="fshijKonkursin(this.getAttribute('data-competition-id'))">Fshij Konkursin</button>
-        <button class="btn btn-primary view-details-btn" th:onclick="">Edito</button>
+        <button class="btn btn-primary view-details-btn" th:attr="data-competition-id=${competition.konkursiId}" onclick="editoKonkursin(this.getAttribute('data-competition-id'))">Edito</button>
 
     </div>
 </div>
@@ -230,6 +230,10 @@
         .catch(error => {
             console.error('Gabim gjatë kërkesës DELETE:', error);
         });
+    }
+
+    function editoKonkursin(competitionId) {
+        window.location.href = '/updateCompetition/' + competitionId;
     }
 </script>
 </body>

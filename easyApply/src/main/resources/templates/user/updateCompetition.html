@@ -195,44 +195,39 @@
 <section class="title-section">
     <h1>Shto Konkursin</h1>
 </section>
-<!--<th:block th:if="${msg}">-->
-<!--    <p class="text-center fs-3" th:text="${msg}"></p>-->
-<!--</th:block>-->
+
 <div class="container">
-    <form class="application-card" action="/user/createCompetition" method="post" th:action="@{/user/createCompetition}" th:object="${competition}">
-        <div class="form-group">
-            <label for="departamentiId">Departamenti:</label>
-            <select  name="departamentiId" class="form-control" id="departamentiId" required>
-                <option value="" selected="selected">Zgjedh departamenti</option>
-                <!-- Upade the code to get the options from db table konkursi!!!!!-->
-           <option th:each="departamenti : ${departamentet}" th:value="${departamenti.departamentiId}" th:text="${departamenti.departamenti}">
+    <form class="application-card" method="post"    action="/updateCompetition/{konkursiId}"  th:action="@{/updateCompetition/{konkursiId}(konkursiId=${konkursiId})}" th:object="${competition}">
 
-                </option>
-            </select>
 
+            <div class="form-group">
+            <label for="departamentiId">Department:</label>
+                <select  name="departamentiId" class="form-control" id="departamentiId" required>
+                    <option value="" selected="selected">Zgjedh departamenti</option>
+                    <!-- Upade the code to get the options from db table konkursi!!!!!-->
+                    <option th:each="departamenti : ${departamentes}" th:value="${departamenti.departamentiId}" th:text="${departamenti.departamenti}">
+
+                    </option>
+                </select>
         </div>
+
         <div class="form-group">
-            <label for="Pershkrimi">Pershkrimi:</label>
-            <input type="text" name="pershkrimi" class="form-control" id="pershkrimi" placeholder="Pershkrimi">
+            <label for="pershkrimi">Description:</label>
+            <input type="text" name="pershkrimi" class="form-control" id="pershkrimi" placeholder="Description">
         </div>
+
         <div class="form-group">
             <label for="data">Date:</label>
-            <div class="input-group">
-                <input type="date" name="data" class="form-control datepicker" id="data" placeholder="Data e perfundimit">
-                <div class="input-group-append">
-                    <span class="input-group-text">
-                        <i class="fa fa-calendar"></i> <!-- You can replace this with your calendar icon -->
-                    </span>
-                </div>
-            </div>
+            <input type="date" name="data" class="form-control" id="data"  placeholder="End Date">
         </div>
+
         <div class="form-group">
-            <label for="teDhenaShtese">Te Dhena Shtese:</label>
-            <input type="text" name="teDhenaShtese" class="form-control" id="teDhenaShtese" placeholder="Shto Te Dhena Shtese">
+            <label for="teDhenaShtese">Additional Information:</label>
+            <input type="text" name="teDhenaShtese" class="form-control" id="teDhenaShtese" placeholder="Additional Information">
         </div>
 
         <div class="action-btns">
-            <button type="submit" class="btn btn-primary">Shto Kompetitionin</button>
+            <button type="submit" class="btn btn-primary">Update Competition</button>
         </div>
     </form>
 </div>

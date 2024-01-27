@@ -35,6 +35,12 @@ public class UserController {
         return "user/profile";
 
     }
+//    @GetMapping("/updateCompetition")
+//    public String updateCompetition(){
+//        return "user/updateCompetition";
+//
+//    }
+
 }
 
 

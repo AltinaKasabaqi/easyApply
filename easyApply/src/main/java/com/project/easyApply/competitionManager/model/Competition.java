@@ -16,7 +16,7 @@ public class Competition {
     private int departamentiId;
     private int kompaniaId;
     private String pershkrimi;
-    private Date data;
+    private LocalDate data;
     private String teDhenaShtese;
     private String statusi;
 }

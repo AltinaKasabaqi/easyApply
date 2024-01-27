@@ -49,7 +49,12 @@ public class CompetitionServicelmpl implements CompetitionService {
         }
     }
 
-//    public void saveCompetition() {
+    @Override
+    public Competition saveCompetition(Competition competition) {
+        return compRepo.save(competition);
+    }
+
+    //    public void saveCompetition() {
 //        // Logjika ekzistuese për ruajtjen e konkursit
 //
 //        // Përdor logjikën për caktimin e statusit bazuar në datën e caktuar
@@ -62,7 +67,9 @@ public class CompetitionServicelmpl implements CompetitionService {
 //    }
 public void mbylleKonkursin() {
     // Merr datën e sotme
-    Date currentDate = new Date();
+//    Date currentDate = new Date();
+    LocalDate currentDate = LocalDate.now();
+
 
     // Merr konkursat që duhet të mbyllen bazuar në datën e sotme dhe datën e përfundimit
     List<Competition> konkursatPerMbyllje = compRepo.findByDataBefore(currentDate);
@@ -84,6 +91,16 @@ public void mbylleKonkursin() {
     public void fshijKonkursin(int konkursiId) {
         compRepo.deleteById(konkursiId);
     }
+
+    @Override
+    public Optional<Competition> getCompetitionById(int konkursiId) {
+        return compRepo.findByKonkursiId(konkursiId);
+    }
+
+
+
+
+
 }
 
 
