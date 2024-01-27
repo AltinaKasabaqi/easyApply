@@ -63,7 +63,7 @@ public class DepartamentiServiceImpl implements DepartamentiService{
         }
         return new Departamenti();
     }
-
+//////
     @Override
     public boolean checkDepartamenti(String departamenti) {
         return departamentiRepository.existsByDepartamenti(departamenti);
