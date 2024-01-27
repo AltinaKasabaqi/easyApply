@@ -153,5 +153,5 @@ public String updateCompetition(@PathVariable int konkursiId, Model model) {
             return "redirect:/user/updateCompetition";
         }
     }
-
+//altina kasabqi
 }
