@@ -13,4 +13,6 @@ public interface DepartamentiService {
     List<Departamenti> getDepartamentetByCompanyId();
 
     public void fshijDepartamentin(int departamentiId);
+
+    List<Departamenti> getDepartamentByCompanyId();
 }
