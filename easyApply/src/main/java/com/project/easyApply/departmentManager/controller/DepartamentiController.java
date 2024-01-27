@@ -39,6 +39,17 @@ public class DepartamentiController {
         return "user/departamentiForm";
     }
 
+    //Listimi i departamenteve te regjistruara ne baze te id se userit
+    @GetMapping("/user/home")
+    public String getDepartamentetByLoggedInUser(Model model){
+        List<Departamenti> departamentet = departamentiService.getDepartamentetByCompanyId();
+
+        model.addAttribute("departamentet",departamentet);
+        System.out.println("Departamentet found:" + departamentet.size());
+
+        return "user/home";
+    }
+
 
     @PostMapping("/user/create-department")
     public String createdepartment(
