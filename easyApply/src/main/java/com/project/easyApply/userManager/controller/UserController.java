@@ -20,21 +20,25 @@ public class UserController {
 
     @ModelAttribute
     private void userDetails(Model m, Principal p){
+        System.out.println("Executing userDetails method...");
         String email=p.getName();
         User u =userRepo.findByEmail(email);
+        System.out.println(u);
         m.addAttribute("user",u);
     }
 
-    @GetMapping("/")
+
+
+        @GetMapping("/")
     public String home(){
         return "user/dashboard";
     }
 
-//    @GetMapping("/profile")
-//    public String profile(){
-//        return "user/profile";
-//
-//    }
+    @GetMapping("/profile")
+    public String profile(){
+        return "user/profile";
+
+    }
 }
 
 

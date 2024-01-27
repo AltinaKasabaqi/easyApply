@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 
     <title>Faqja e Profilit</title>
     <style>
@@ -18,11 +18,13 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
 
         nav {
             background-color: #3498db;
             color: white;
+            text-align: center;
         }
 
         nav ul {
@@ -30,67 +32,87 @@
             margin: 0;
             padding: 0;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
         }
 
         nav ul li {
             margin: 10px;
         }
 
-        nav ul li a img{
-            float: right;
-            width: 20%;
+        nav ul li a img {
+            width: 30px;
         }
 
         header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
             padding: 20px;
             background-color: #f0f0f0;
         }
+       .profile-info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff; /* White background */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        border-radius: 10px; /* Rounded corners */
+    }
+
+    .profile-info img {
+        width: 120px; /* Larger profile image */
+        border-radius: 50%;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow */
+    }
+
+    .profile-details {
+    text-align: left;
+    padding: 20px;
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 10px; /* Rounded corners */
+    margin-top: 20px;
+}
+
+.profile-details p,
+.profile-details h4 {
+    margin: 5px 0;
+}
+
+.profile-details p {
+    font-size: 16px; /* Smaller font size for labels */
+    color: #555; /* Darker label color */
+}
+
+.profile-details h4 {
+    font-size: 20px; /* Larger font size for data */
+    margin-bottom: 15px;
+    color: #333; /* Darker text color */
+}
+
+/* Combine user.emri and user.mbiemri into a single h4 element */
+.profile-details .full-name {
+<!--    font-size: 24px; /* Larger font size for the full name */-->
+    margin: 5px 0;
+    color: #333; /* Darker text color */
+}
+
+.profile-details h4.email {
+    color: #0066b2;
+    font-size: 18px; /* Adjust font size */
+    font-weight: bold; /* Add bold style */
+    text-decoration: underline; /* Underline the email */
+    margin-top: 5px; /* Provide some space above the email */
+}
 
 
-           .button-section {
-            display: block;
 
-
-
-            padding: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .button-section button {
-<!--            color: #f8f9fa;-->
-            background-color: transparent;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-            width: 80%; /* Përcaktoj një width të caktuar */
-            display: block; /* Vendos butonat në një rresht */
-            margin: 5px; /* Shtoj një hapsirë mes butonave */
-        }
-
-        .button-section button:hover {
-            background-color: #495057;
-        }
-
-        .profile-info {
-            flex-grow: 1;
-        }
-        .profile-info img{
-            width: 30%;
-            float: left;
-        }
-
-        .right{
-            float: right;
-        }
-
-
-
-         footer {
+        footer {
             background-color: #3498db;
             color: white;
             text-align: center;
@@ -120,201 +142,44 @@
         .bottom-bar > a > img {
             width: 100%;
         }
-
-        nav ul li a img {
-                width: 30px; /* Adjusted width */
-            }
-         nav ul li {
-            margin: 10px;
-        }
-         nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center; /* Adjusted alignment */
-
-        }
-         nav {
-            background-color: #3498db;
-            color: white;
-            text-align: center; /* Adjusted alignment */
-        }
-        .profile-info > img{
-            width:30px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        .modal-dialog {
-            margin: auto;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 100%;
-            width: 60%;
-            height: 50%;
-
-        .modal-content {
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .modal-header {
-            padding: 15px;
-            border-bottom: 1px solid #dee2e6;
-        }
-
-        .modal-title {
-            margin: 0;
-        }
-
-        .modal-body {
-            padding: 15px;
-        }
-
-        .modal-footer {
-            padding: 15px;
-            border-top: 1px solid #dee2e6;
-        }
-
-          .close {
-            cursor: pointer;
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            padding: 0;
-        }
-
-        /* Close icon */
-        .close .fas {
-            font-size: 1.5rem;
-            color: red;
-        }
-
-        .delete-button {
-            background-color:brown;
-            color: white;
-        }
-
-        .table-responsive {
-            overflow-x: auto;
-        }
-
-        .table {
-            width: 100%;
-            margin-bottom: 0;
-            background-color: transparent;
-        }
-
-        .table th,
-        .table td {
-            padding: 0.75rem;
-            vertical-align: top;
-            border-top: 1px solid #dee2e6;
-        }
-
-        .table thead th {
-            vertical-align: bottom;
-            border-bottom: 2px solid #dee2e6;
-        }
-
-        .table tbody + tbody {
-            border-top: 2px solid #dee2e6;
-        }
-
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: rgba(0, 0, 0, 0.05);
-        }
-
-
-</style>
+    </style>
 
 </head>
+
 <body>
+
 <nav>
     <ul>
-        <li><a href="#"><img src="../loop2.png" alt="Settings" style="float: left;"></a></li>
+        <li><a href="#"><img src="../loop2.png" alt="Settings"></a></li>
         <li><a href="/dashboard"><img src="../h.png" alt="foto"/></a></li>
         <li><a href="#"><img src="../settings1.png" alt="Settings"></a></li>
         <li><a href="/signin"><img src="../logout2.png" alt="Logout" title="Shkyqu"></a></li>
     </ul>
 </nav>
 
-<header>
+
+
+
+<!--<header>-->
     <div class="profile-info">
-        <img src="../profile.png">
-        <div class="right">
-            <h2></h2>
-            <p></p>
-
-        </div>
+        <img src="../profile.png" alt="Company Logo">
+        <h2>[[${user.emriKompanise}]]</h2>
     </div>
-</header>
+<!--</header>-->
+        <br>
 
-<div class="button-section">
-    <center>
-        <button onclick="window.location.href='/user/createCompetition'">Shto Konkurset</button>
-        <button onclick="window.location.href='/user/departamentiForm'">Shto Departamentin</button>
-        <button onclick="window.location.href='/user/dashboard'">Konkurset</button>
-        <button class="btn btn-primary" onclick="toggleDepartamenteModal()">Lista e Departamenteve</button>
-    </center>
-</div>
-<!-- Modal HTML -->
-<div id="departamenteModal" class="modal" style="display: none;">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Lista e Departamenteve</h5>
-                <button type="button" class="close" onclick="toggleDepartamenteModal()">
-                    <span aria-hidden="true"><i class="fas fa-times"></i></span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="table-responsive">
-                    <!-- Department List Table -->
-                    <table class="table table-striped">
-                        <thead>
-                        <tr>
-                            <th>Emri Departamentit</th>
-                            <th>Pershkrimi</th>
-                            <th></th> <!-- New column for delete buttons -->
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <!-- Loop through the departments and populate the table rows -->
-                        <tr th:each="departament : ${departamentet}">
-                            <td th:text="${departament.departamenti}"></td>
-                            <td th:text="${departament.pershkrimi}"></td>
-                            <td>
-                                <button class="btn btn-danger delete-button" th:attr="data-departamenti-id=${departament.departamentiId}" onclick="fshijDepartamentin(this.getAttribute('data-departamenti-id'))">Fshije</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <!-- Show message if no departments are available -->
-                <div th:if="${#lists.isEmpty(departamentet)}">
-                    <p>Nuk ka departamente te regjistruara</p>
-                </div>
-            </div>
-        </div>
+    <div class="profile-details">
+        <p>Industria:</p>
+        <h4>[[${user.industria}]]</h4>
+        <p>Lokacioni:</p>
+        <h4>[[${user.lokacioni}]]</h4>
+        <p>Menaxhon:</p>
+        <h4 class="full-name">[[${user.emri}]] [[${user.mbiemri}]]</h4>
+        <p>Email:</p>
+        <h4 class="email special-email">[[${user.email}]]</h4>
     </div>
-</div>
+
+
 <footer>
     <div class="bottom-bar">
         <img src="../loop2.png"/>
@@ -322,43 +187,6 @@
     </div>
 </footer>
 
-<script>
-    function toggleDepartamenteModal() {
-        var modal = document.getElementById('departamenteModal');
-        if (modal.style.display === 'none') {
-            modal.style.display = 'block';
-        } else {
-            modal.style.display = 'none';
-        }
-    }
-</script>
-<script type ="text/javascript">
-    function fshijDepartamentin(departamentiId){
-    fetch('/user/profile/' + departamentiId,{
-        method: 'DELETE'
-    })
-    .then(response => {
-        if(response.ok){
-
-            console.log('Departamenti u fshi me sukses!');
-            alert('Departamenti u fshi me sukses!');
-
-             setTimeout(function() {
-                    location.reload();
-                }, 2000);
-
-        } else{
-
-           console.log('Gabim gjate fshirjes se departamentit!');
-            alert('Gabim gjate kerkeses DELETE: ' + error);
-        }
-    })
-    .catch(error => {
-
-         console.error('Gabim gjate kerkeses DELETE:',error);
-          alert('Gabim gjate kerkeses DELETE: ' + error);
-        });
-    }
-</script>
 </body>
+
 </html>

@@ -43,7 +43,7 @@ public class SecurityConfig {
         http.csrf().disable()
                 .authorizeHttpRequests().requestMatchers("/user/**").authenticated()
                 .requestMatchers("/**").permitAll().and().formLogin().loginPage("/signin").loginProcessingUrl("/login")
-                .defaultSuccessUrl("/user/profile");
+                .defaultSuccessUrl("/user/home");
         return http.build();
     }
 
