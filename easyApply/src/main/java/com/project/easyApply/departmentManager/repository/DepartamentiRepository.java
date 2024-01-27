@@ -1,6 +1,5 @@
 package com.project.easyApply.departmentManager.repository;
 
-import com.project.easyApply.competitionManager.model.Competition;
 import com.project.easyApply.departmentManager.model.Departamenti;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,5 +17,8 @@ public interface DepartamentiRepository extends JpaRepository<Departamenti,Integ
 
         Optional<Departamenti> findByDepartamentiAndKompania(String departamenti,int kompania);
 
-        List<Departamenti> findByKompania(int kompania);
+    List<Departamenti> findByKompania(int kompania);
+
+
+    void deleteById(int departamentiId);
 }

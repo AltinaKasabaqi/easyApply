@@ -1,5 +1,6 @@
 package com.project.easyApply.departmentManager.controller;
 
+//import ch.qos.logback.core.model.Model;
 import com.project.easyApply.competitionManager.model.Competition;
 import com.project.easyApply.departmentManager.model.Departamenti;
 import com.project.easyApply.departmentManager.repository.DepartamentiRepository;
@@ -8,14 +9,13 @@ import com.project.easyApply.userManager.service.UserService;
 import jakarta.persistence.EntityExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import java.util.List;
 
 
 @Controller
@@ -63,6 +63,17 @@ public class DepartamentiController {
      }
 
         return "redirect:/user/departamentiForm";
+    }
+
+//Fshirja e departamentit ne baze te id se userit
+    @DeleteMapping("user/profile/{id}")
+    public ResponseEntity<String> fshijDepartamentin(@PathVariable int id){
+        try{
+            departamentiService.fshijDepartamentin(id);
+            return new ResponseEntity<>("Konkursi u fshi me sukses!",HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("Gabim gjate fshirjes se departamentit!", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 

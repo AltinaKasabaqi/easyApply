@@ -30,17 +30,11 @@ public class UserController {
         return "user/dashboard";
     }
 
-    @GetMapping("/profile")
-    public String profile(){
-        return "user/profile";
-
-    }
-//    @GetMapping("/updateCompetition")
-//    public String updateCompetition(){
-//        return "user/updateCompetition";
+//    @GetMapping("/profile")
+//    public String profile(){
+//        return "user/profile";
 //
 //    }
-
 }
 
 
