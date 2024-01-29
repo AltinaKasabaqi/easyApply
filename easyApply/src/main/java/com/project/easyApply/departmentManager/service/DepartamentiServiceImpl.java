@@ -78,15 +78,15 @@ public class DepartamentiServiceImpl implements DepartamentiService{
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
             userId = userService.findUserIdByEmail(userDetails.getUsername());
         } else {
-            // Ju mund të vendosni një vlerë parazgjedhëse nëse përdoruesi nuk është i loguar
+
             userId = -1;
         }
 
         if (userId != -1) {
             return departamentiRepository.findByKompania(userId);
         } else {
-            // Kthimi i një listë bosh ose një mesazh tjetër sipas rastit
-            return Collections.emptyList(); // ose null, ose një listë bosh, ose një mesazh tjetër sipas rastit
+
+            return Collections.emptyList();
         }
     }
 

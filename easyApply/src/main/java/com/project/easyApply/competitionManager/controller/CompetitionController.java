@@ -37,13 +37,7 @@ public class CompetitionController {
         return "user/competition";
     }
 
-//    @GetMapping("/updateCompetition/{konkursiId}")
-//    public String updateCompetition(@PathVariable int konkursiId, Model model) {
-//        Optional<Competition> competition = competitionService.getCompetitionById(konkursiId);
-//        model.addAttribute("competition", competition.orElse(null)); // Ose null nëse nuk gjen konkursin
-//        System.out.println(competition);
-//        return "user/updateCompetition";
-//    }
+
 @GetMapping("/updateCompetition/{konkursiId}")
 public String updateCompetition(@PathVariable int konkursiId, Model model) {
 
@@ -90,12 +84,7 @@ public String updateCompetition(@PathVariable int konkursiId, Model model) {
         }
         return "redirect:/user/competition";
     }
-//
 
-//    @PostMapping("/update")
-//    public void saveCompetition(@RequestBody Competition competition) {
-//        competitionService.saveCompetition(competition);
-//    }
 
 
     @GetMapping("/mbylle")
@@ -147,5 +136,5 @@ public String updateCompetition(@PathVariable int konkursiId, Model model) {
             return "redirect:/user/updateCompetition";
         }
     }
-//altina kasabqi
+
 }

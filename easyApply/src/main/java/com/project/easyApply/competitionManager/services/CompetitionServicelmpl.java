@@ -37,14 +37,14 @@ public class CompetitionServicelmpl implements CompetitionService {
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
             userId = userService.findUserIdByEmail(userDetails.getUsername());
         } else {
-            // Ju mund të vendosni një vlerë parazgjedhëse nëse përdoruesi nuk është i loguar
+
             userId = -1;
         }
         if (userId != -1) {
             return compRepo.findByKompaniaId(userId);
         } else {
-            // Kthimi i një listë bosh ose një mesazh tjetër sipas rastit
-            return Collections.emptyList(); // ose null, ose një listë bosh, ose një mesazh tjetër sipas rastit
+
+            return Collections.emptyList();
         }
     }
 
@@ -53,32 +53,15 @@ public class CompetitionServicelmpl implements CompetitionService {
         return compRepo.save(competition);
     }
 
-    //    public void saveCompetition() {
-//        // Logjika ekzistuese për ruajtjen e konkursit
-//
-//        // Përdor logjikën për caktimin e statusit bazuar në datën e caktuar
-//        if (competition.getData().isBefore(LocalDate.now())) {
-//            competition.setStatusi("i mbyllur");
-//        }
-//
-//        // Ruaj konkursin në bazën e të dhënave
-//        compRepo.save(competition);
-//    }
+
 public void mbylleKonkursin() {
-    // Merr datën e sotme
-//    Date currentDate = new Date();
+
     LocalDate currentDate = LocalDate.now();
-
-
-    // Merr konkursat që duhet të mbyllen bazuar në datën e sotme dhe datën e përfundimit
     List<Competition> konkursatPerMbyllje = compRepo.findByDataBefore(currentDate);
-
-    // Ndrysho statusin e konkursit në "i mbyllur"
     for (Competition konkursi : konkursatPerMbyllje) {
         konkursi.setStatusi("i mbyllur");
     }
 
-    // Ruaj ndryshimet në bazën e të dhënave
     compRepo.saveAll(konkursatPerMbyllje);
 }
     @Override

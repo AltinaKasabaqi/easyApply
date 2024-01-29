@@ -106,17 +106,6 @@ public class DepartamentiController {
     }
 
 
-//    @GetMapping("user/updateCompetition/{konkursiId}")
-//    public String getCompetitionsByLoggedInUser2(  Model model) {
-//
-//        List<Departamenti> departamentes = departamentiService.getDepartamentByCompanyId();
-//        model.addAttribute("departamentes", departamentes);
-//        System.out.println("Departments found found: " + departamentes.size());
-//        System.out.println(departamentes);
-//
-//
-//        return "user/updateCompetition/{konkursiId}"; // Kthehu në formën e konkurimit
-//
-//    }
+
 
 }
