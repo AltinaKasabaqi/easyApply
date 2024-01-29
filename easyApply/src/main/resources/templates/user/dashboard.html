@@ -178,21 +178,21 @@
 <nav>
     <ul>
         <li><a href="#"><img src="../loop2.png" alt="Settings" title="search" style="float: left;"></a></li>
-        <li><a href="user//" ><img src="../h.png" alt="foto"/></a></li>
+        <li><a href="/user/home" ><img src="../h.png" alt="foto"/></a></li>
         <li><a  href="#"><img  src="../settings1.png" alt="Settings" title="Settings"></a></li>
         <li><a  href="/user/departamentiForm"><img  src="../addmore1.png" alt="Shto Departamente" title="Shto Departamente"></a></li>
-        <li><a  href="/signin"><img  src="../logout2.png" alt="Logout" title="Shkyqu"></a></li>
+        <li><a href="/logout"><img src="../logout2.png" alt="Logout" title="Shkyqu"></a></li>
     </ul>
 </nav>
 
 
 
 <div th:if="${not #lists.isEmpty(competitions)}">
-    <h2>Your Competitions:</h2>
+   <center> <h2>Your Competitions:</h2></center>
     <div class="konkursi-card" th:each="competition : ${competitions}">
-        <h4 class="card-title" th:text="'Konkursi ID: ' + ${competition.konkursiId}"></h4>
-        <p class="card-text"><strong>Kompania ID:</strong> <span th:text="${competition.kompaniaId}"></span></p>
-        <p class="card-text"><strong>Pershkrimi:</strong> <span th:text="${competition.pershkrimi}"></span></p>
+<!--        <h4 class="card-title" th:text="'Konkursi ID: ' + ${competition.konkursiId}"></h4>-->
+<!--        <p class="card-text"><strong>Kompania ID:</strong> <span th:text="${competition.kompaniaId}"></span></p>-->
+        <p class="card-text"><strong><span th:text="${competition.pershkrimi}"></span></strong> </p>
         <p class="card-text"><strong>Data:</strong> <span th:text="${competition.data}"></span></p>
         <p class="card-text"><strong>Te Dhena Shtese:</strong> <span class="teDhenaShtese" th:text="${competition.teDhenaShtese}"></span></p>
         <div class="additional-data">

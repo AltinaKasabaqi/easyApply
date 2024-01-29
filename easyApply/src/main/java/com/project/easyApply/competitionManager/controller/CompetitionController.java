@@ -70,19 +70,13 @@ public String updateCompetition(@PathVariable int konkursiId, Model model) {
         mbylleKonkursin();
         List<Competition> competitions = competitionService.getCompetitionsByCompanyId();
 
-//        if (competitions != null && !competitions.isEmpty()) {
             model.addAttribute("competitions", competitions);
             System.out.println("Competitions found: " + competitions.size());
-//        } else {
-//            System.out.println("No competitions found");
-//            // Vendosni një mesazh nëse nuk ka konkurse
-//            model.addAttribute("noCompetitions", "No competitions found");
-//        }
 
         return "user/dashboard";
     }
 
-    @PutMapping("/user/createCompetition")
+    @PostMapping("/user/createCompetition")
     public String createCompetition(@ModelAttribute Competition competition, RedirectAttributes redirectAttributes) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 

@@ -81,7 +81,7 @@ public class DepartamentiController {
     }
 
 //Fshirja e departamentit ne baze te id se userit
-    @DeleteMapping("user/profile/{id}")
+    @DeleteMapping("user/home/{id}")
     public ResponseEntity<String> fshijDepartamentin(@PathVariable int id){
         try{
             departamentiService.fshijDepartamentin(id);
