@@ -1,4 +1,6 @@
 package com.project.easyApply.competitionManager.controller;
+
+import com.project.easyApply.competitionManager.DTOs.CompetitionRequestDto;
 import com.project.easyApply.departmentManager.model.Departamenti;
 import com.project.easyApply.departmentManager.service.DepartamentiService;
 import com.project.easyApply.userManager.config.CustomUserDetails;
@@ -31,32 +33,30 @@ public class CompetitionController {
     private DepartamentiService departamentiService;
 
 
-
     @GetMapping("/competiton")
     public String shtoCompetition() {
         return "user/competition";
     }
 
 
-@GetMapping("/updateCompetition/{konkursiId}")
-public String updateCompetition(@PathVariable int konkursiId, Model model) {
+    @GetMapping("/updateCompetition/{konkursiId}")
+    public String updateCompetition(@PathVariable int konkursiId, Model model) {
 
-    List<Departamenti> departamentes = departamentiService.getDepartamentByCompanyId();
-    model.addAttribute("departamentes", departamentes);
-    System.out.println("Departments found found: " + departamentes.size());
-    System.out.println(departamentes);
+        List<Departamenti> departamentes = departamentiService.getDepartamentByCompanyId();
+        model.addAttribute("departamentes", departamentes);
+        System.out.println("Departments found found: " + departamentes.size());
+        System.out.println(departamentes);
 
-    Optional<Competition> competition = competitionService.getCompetitionById(konkursiId);
-    model.addAttribute("competition", competition.orElse(null)); // Ose null nëse nuk gjen konkursin
-    System.out.println(competition);
+        Optional<Competition> competition = competitionService.getCompetitionById(konkursiId);
+        model.addAttribute("competition", competition.orElse(null)); // Ose null nëse nuk gjen konkursin
+        System.out.println(competition);
 
-    // Merr listën e konkurrencave dhe shto ato në model
-    List<Competition> competitions = competitionService.getCompetitionsByCompanyId();
-    model.addAttribute("competitions", competitions);
+        // Merr listën e konkurrencave dhe shto ato në model
+        List<Competition> competitions = competitionService.getCompetitionsByCompanyId();
+        model.addAttribute("competitions", competitions);
 
-    return "user/updateCompetition";
-}
-
+        return "user/updateCompetition";
+    }
 
 
     @GetMapping("user/dashboard")
@@ -64,27 +64,33 @@ public String updateCompetition(@PathVariable int konkursiId, Model model) {
         mbylleKonkursin();
         List<Competition> competitions = competitionService.getCompetitionsByCompanyId();
 
-            model.addAttribute("competitions", competitions);
-            System.out.println("Competitions found: " + competitions.size());
+        model.addAttribute("competitions", competitions);
+        System.out.println("Competitions found: " + competitions.size());
 
         return "user/dashboard";
     }
 
     @PostMapping("/user/createCompetition")
-    public String createCompetition(@ModelAttribute Competition competition, RedirectAttributes redirectAttributes) {
+    public String createCompetition(@ModelAttribute CompetitionRequestDto competitionRequestDto, RedirectAttributes redirectAttributes) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication.getPrincipal() instanceof CustomUserDetails) {
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
 
             int userId = userService.findUserIdByEmail(userDetails.getUsername());
-            competition.setKompaniaId(userId);
+
+            var competition = Competition.CreateCompetition(competitionRequestDto.getDepartamentiId(),
+                    userId,
+                    competitionRequestDto.getPershkrimi(),
+                    competitionRequestDto.getData(),
+                    competitionRequestDto.getTeDhenaShtese(),
+                    "I hapur");
+
             competitionService.createCompetition(competition);
 
         }
         return "redirect:/user/competition";
     }
-
 
 
     @GetMapping("/mbylle")

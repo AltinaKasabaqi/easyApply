@@ -29,7 +29,7 @@ public class UserController {
 
 
 
-        @GetMapping("/")
+    @GetMapping("/")
     public String home(){
         return "user/dashboard";
     }
