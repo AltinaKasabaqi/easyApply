@@ -20,8 +20,10 @@ public class Competition {
     private String teDhenaShtese;
     private String statusi;
 
+    private Competition(){
 
-    // Factory metoda per me kriju kompetition
+    }
+    // Factory metoda per me kriju competition
     public static Competition CreateCompetition(int departamentiId, int kompaniaId, String pershkrimi, LocalDate data, String teDhenatShtese, String statusi ){
         var competition = new Competition();
 
