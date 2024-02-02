@@ -3,8 +3,7 @@ package com.project.easyApply.competitionManager.services;
 import com.project.easyApply.competitionManager.model.Competition;
 import com.project.easyApply.competitionManager.repository.CompetitionRespository;
 import com.project.easyApply.userManager.config.CustomUserDetails;
-import com.project.easyApply.userManager.model.User;
-import com.project.easyApply.userManager.service.UserService;
+import com.project.easyApply.userManager.service.KompaniaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,7 +22,7 @@ public class CompetitionServicelmpl implements CompetitionService {
     private CompetitionRespository compRepo;
 
     @Autowired
-    private UserService userService;
+    private KompaniaService userService;
 
 
 
@@ -35,7 +34,7 @@ public class CompetitionServicelmpl implements CompetitionService {
 
         if (authentication.getPrincipal() instanceof CustomUserDetails) {
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-            userId = userService.findUserIdByEmail(userDetails.getUsername());
+            userId = userService.findKompaniaIdByEmail(userDetails.getUsername());
         } else {
 
             userId = -1;

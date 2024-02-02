@@ -10,10 +10,9 @@ public class CompetitionRequestDto {
     private String teDhenaShtese;
     private LocalDate data;
 
-    // Default constructor is needed for Spring to instantiate the object from JSON
+
     public CompetitionRequestDto() {}
 
-    // Getters and setters
     public int getDepartamentiId() {
         return departamentiId;
     }

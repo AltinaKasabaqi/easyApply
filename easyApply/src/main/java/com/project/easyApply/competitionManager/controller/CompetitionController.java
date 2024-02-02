@@ -4,8 +4,7 @@ import com.project.easyApply.competitionManager.DTOs.CompetitionRequestDto;
 import com.project.easyApply.departmentManager.model.Departamenti;
 import com.project.easyApply.departmentManager.service.DepartamentiService;
 import com.project.easyApply.userManager.config.CustomUserDetails;
-//import com.project.easyApply.userManager.model.User;
-import com.project.easyApply.userManager.service.UserService;
+import com.project.easyApply.userManager.service.KompaniaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -27,7 +26,7 @@ public class CompetitionController {
     @Autowired
     private CompetitionService competitionService;
     @Autowired
-    private UserService userService;
+    private KompaniaService userService;
 
     @Autowired
     private DepartamentiService departamentiService;
@@ -77,7 +76,7 @@ public class CompetitionController {
         if (authentication.getPrincipal() instanceof CustomUserDetails) {
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
 
-            int userId = userService.findUserIdByEmail(userDetails.getUsername());
+            int userId = userService.findKompaniaIdByEmail(userDetails.getUsername());
 
             var competition = Competition.CreateCompetition(competitionRequestDto.getDepartamentiId(),
                     userId,

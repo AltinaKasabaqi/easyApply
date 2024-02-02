@@ -5,7 +5,7 @@ import com.project.easyApply.competitionManager.model.Competition;
 import com.project.easyApply.departmentManager.model.Departamenti;
 import com.project.easyApply.departmentManager.repository.DepartamentiRepository;
 import com.project.easyApply.departmentManager.service.DepartamentiService;
-import com.project.easyApply.userManager.service.UserService;
+import com.project.easyApply.userManager.service.KompaniaService;
 import jakarta.persistence.EntityExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,7 +32,7 @@ public class DepartamentiController {
     private DepartamentiService departamentiService;
 
     @Autowired
-    private UserService userService;
+    private KompaniaService userService;
 
     @GetMapping("/user/departamentiForm")
     public String shtoDepartamentin() {

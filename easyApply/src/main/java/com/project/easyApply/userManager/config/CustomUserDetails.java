@@ -1,6 +1,6 @@
 package com.project.easyApply.userManager.config;
 
-import com.project.easyApply.userManager.model.User;
+import com.project.easyApply.userManager.model.Kompania;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,9 +9,9 @@ import java.util.Collection;
 import java.util.Collections;
 
 public class CustomUserDetails implements UserDetails {
-    private User user;
+    private Kompania user;
 
-    public CustomUserDetails(User user) {
+    public CustomUserDetails(Kompania user) {
         this.user = user;
     }
 

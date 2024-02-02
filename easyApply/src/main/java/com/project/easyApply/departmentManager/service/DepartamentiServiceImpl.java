@@ -4,7 +4,7 @@ import com.project.easyApply.competitionManager.model.Competition;
 import com.project.easyApply.departmentManager.model.Departamenti;
 import com.project.easyApply.departmentManager.repository.DepartamentiRepository;
 import com.project.easyApply.userManager.config.CustomUserDetails;
-import com.project.easyApply.userManager.service.UserService;
+import com.project.easyApply.userManager.service.KompaniaService;
 import jakarta.persistence.EntityExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,7 +22,7 @@ public class DepartamentiServiceImpl implements DepartamentiService{
     private DepartamentiRepository departamentiRepository;
 
     @Autowired
-    private UserService userService;
+    private KompaniaService userService;
 
     @Override
     public List<Departamenti> getDepartamentetByCompanyId() {
@@ -31,7 +31,7 @@ public class DepartamentiServiceImpl implements DepartamentiService{
 
         if(authentication.getPrincipal() instanceof CustomUserDetails){
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-            userId = userService.findUserIdByEmail(userDetails.getUsername());
+            userId = userService.findKompaniaIdByEmail(userDetails.getUsername());
         }else {
             userId = -1;
         }
@@ -50,7 +50,7 @@ public class DepartamentiServiceImpl implements DepartamentiService{
         if(authentication.getPrincipal() instanceof CustomUserDetails){
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
 
-            int userId = userService.findUserIdByEmail(userDetails.getUsername());
+            int userId = userService.findKompaniaIdByEmail(userDetails.getUsername());
             departamenti.setKompania(userId);
             //Check departamenti for the given company
             Optional<Departamenti> existingDepartamenti = departamentiRepository.findByDepartamentiAndKompania(departamenti.getDepartamenti(),userId);
@@ -76,7 +76,7 @@ public class DepartamentiServiceImpl implements DepartamentiService{
 
         if (authentication.getPrincipal() instanceof CustomUserDetails) {
             CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-            userId = userService.findUserIdByEmail(userDetails.getUsername());
+            userId = userService.findKompaniaIdByEmail(userDetails.getUsername());
         } else {
 
             userId = -1;

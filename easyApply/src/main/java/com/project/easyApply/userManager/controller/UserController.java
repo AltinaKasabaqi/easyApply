@@ -1,8 +1,8 @@
 package com.project.easyApply.userManager.controller;
 
 
-import com.project.easyApply.userManager.model.User;
-import com.project.easyApply.userManager.repository.UserRepository;
+import com.project.easyApply.userManager.model.Kompania;
+import com.project.easyApply.userManager.repository.KompaniaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,13 +16,13 @@ import java.security.Principal;
 @RequestMapping("/user")
 public class UserController {
     @Autowired
-    private UserRepository userRepo;
+    private KompaniaRepository userRepo;
 
     @ModelAttribute
     private void userDetails(Model m, Principal p){
         System.out.println("Executing userDetails method...");
         String email=p.getName();
-        User u =userRepo.findByEmail(email);
+        Kompania u =userRepo.findByEmail(email);
         System.out.println(u);
         m.addAttribute("user",u);
     }

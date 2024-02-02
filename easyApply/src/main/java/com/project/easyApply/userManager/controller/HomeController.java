@@ -1,8 +1,7 @@
 package com.project.easyApply.userManager.controller;
 
-import com.project.easyApply.userManager.model.User;
-import com.project.easyApply.userManager.service.UserService;
-import jakarta.servlet.http.HttpSession;
+import com.project.easyApply.userManager.model.Kompania;
+import com.project.easyApply.userManager.service.KompaniaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +12,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class HomeController {
     @Autowired
-    private UserService userService;
+    private KompaniaService userService;
 
     @GetMapping("/")
     public String home(){
@@ -35,13 +34,13 @@ public class HomeController {
 
 
 @PostMapping("/createUser")
-public String createuser(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
+public String createuser(@ModelAttribute Kompania user, RedirectAttributes redirectAttributes) {
     boolean f = userService.checkEmail(user.getEmail());
 
     if (f) {
         redirectAttributes.addFlashAttribute("msg", "Email already exists");
     } else {
-        User userDtls = userService.createUser(user);
+        Kompania userDtls = userService.createUser(user);
 
         if (userDtls != null) {
             redirectAttributes.addFlashAttribute("msg", "Registered");

@@ -1,6 +1,5 @@
 package com.project.easyApply.departmentManager.model;
 
-import com.project.easyApply.userManager.model.User;
 import jakarta.persistence.*;
 import lombok.Data;
 

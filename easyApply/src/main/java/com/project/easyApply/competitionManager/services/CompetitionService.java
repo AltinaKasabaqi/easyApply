@@ -1,7 +1,6 @@
 package com.project.easyApply.competitionManager.services;
 
 import com.project.easyApply.competitionManager.model.Competition;
-import com.project.easyApply.userManager.model.User;
 
 import java.util.*;
 
